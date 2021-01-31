@@ -1,3 +1,4 @@
+const generator = require("./generator");
 const http = require('http');
 
 const server = http.createServer(function (req, res) {   //create web server
@@ -18,9 +19,8 @@ const server = http.createServer(function (req, res) {   //create web server
             break;
         case 'POST':
             if (req.url === '/generate') { //check the URL of the current request
-                res.writeHead(200, {'Content-Type': 'application/json'});
-                res.write(JSON.stringify({message: "Hello World"}));
-                res.end();
+                //PROCESSING PDF
+                let pdf = generator().process("test");
             } else {
                 res.end('Invalid Request!');
             }
