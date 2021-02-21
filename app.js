@@ -20,7 +20,7 @@ const server = http.createServer(function (req, res) {   //create web server
         case 'POST':
             if (req.url === '/generate') { //check the URL of the current request
                 //PROCESSING PDF
-                let pdf = generator().process("test");
+                let pdf = generator.process();
             } else {
                 res.end('Invalid Request!');
             }
